@@ -22,6 +22,7 @@ class HandleDB {
     // 连接数据库（不存在就双肩，存在即打开）
     connectDataBase() {
         let _self = this;
+        console.log('_self.databaseFile  ' + _self.databaseFile);
         return new Promise((resolve, reject) => {
             _self.db = new SQLite3.Database(_self.databaseFile, function(err) {
                 if (err) reject(new Error(err));
