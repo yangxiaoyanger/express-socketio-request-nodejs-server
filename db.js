@@ -27,31 +27,31 @@ function defineModel(name, attributes) {
     for (let key in attributes) {
         let value = attributes[key];
         if (typeof value === 'object' && value['type']) {
-            value.allowNull = value.allowNull || false;
+            value.allowNull = value.allowNull || true;
             attrs[key] = value;
         } else {
             attrs[key] = {
                 type: value,
-                allowNull: false
+                allowNull: true
             };
         }
     }
-    attrs.id = {
-        type: ID_TYPE,
-        primaryKey: true
-    };
-    attrs.createdAt = {
-        type: Sequelize.BIGINT,
-        allowNull: false
-    };
-    attrs.updatedAt = {
-        type: Sequelize.BIGINT,
-        allowNull: false
-    };
-    attrs.version = {
-        type: Sequelize.BIGINT,
-        allowNull: false
-    };
+    // attrs.id = {
+    //     type: ID_TYPE,
+    //     primaryKey: true
+    // };
+    // attrs.createdAt = {
+    //     type: Sequelize.BIGINT,
+    //     allowNull: false
+    // };
+    // attrs.updatedAt = {
+    //     type: Sequelize.BIGINT,
+    //     allowNull: false
+    // };
+    // attrs.version = {
+    //     type: Sequelize.BIGINT,
+    //     allowNull: false
+    // };
     // console.log('model defined for table: ' + name + '\n' + JSON.stringify(attrs, function (k, v) {
     //     if (k === 'type') {
     //         for (let key in Sequelize) {
@@ -98,7 +98,7 @@ function defineModel(name, attributes) {
     });
 }
 
-const TYPES = ['STRING', 'INTEGER', 'BIGINT', 'TEXT', 'DOUBLE', 'DATEONLY', 'BOOLEAN'];
+const TYPES = ['STRING', 'INTEGER', 'BIGINT', 'TEXT', 'DOUBLE', 'DATEONLY', 'BOOLEAN', 'DECIMAL'];
 
 var exp = {
     defineModel: defineModel,
@@ -113,7 +113,7 @@ var exp = {
 };
 
 for (let type of TYPES) {
-    exp[type] = Sequelize[type];
+    exp[type] = Sequelize.DataTypes[type];
 }
 
 exp.ID = ID_TYPE;

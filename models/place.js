@@ -1,0 +1,55 @@
+const db = require('../db');
+
+module.exports = db.defineModel('p_place', {
+    PLACE_ID: {type: db.ID, field: 'placeid', allowNull: false, comment: '车场ID'},
+    REGISTER_ID: {type: db.ID, field: 'registerid', allowNull: false, comment: '车场登记编号'},
+    PLACE_NAME: {type: db.ID, field: 'placename', allowNull: false, comment: '车场名称'},
+    PLACE_SLOT_NUM: {type: db.ID, field: 'placeslotnum', allowNull: false, comment: '车场泊位总数'},
+    ORDERED_SLOT_NUM: {type: db.ID, field: 'orderedslotnum', allowNull: false, comment: '车场已预定泊位数'},
+    OCUPPIED_SLOT_NUM: {type: db.ID, field: 'ocuppiedslotnum', allowNull: false, comment: '车场已使用泊位数'},
+    AVAILABLE_SLOT_NUM: {type: db.ID, field: 'availableslotnum', allowNull: false, comment: '车场空余泊位数'},
+    PLACE_SLOTFORDISABLE_NUM: {type: db.ID, field: 'placeslotfordisablenum', allowNull: false, comment: '残疾人专用泊位总数'},
+    AVAILABLE_SLOTFORDISABLE_NUM: {type: db.ID, field: 'availableslotfordisablenum', allowNull: false, comment: '残疾人专用空余泊位数'},
+    PLACE_SLOT_ELECTRIC_NUM: {type: db.ID, field: 'placeslotelectricnum', allowNull: false, comment: '充电桩泊位总数'},
+    AVAILABLE_SLOT_ELECTRIC_NUM: {type: db.ID, field: 'availableslotelectricnum', allowNull: false, comment: '充电桩空余泊位数'},
+    PLACE_STATUS: {type: db.ID, field: 'availableslotfordisablenum', allowNull: false, comment: '残疾人专用空余泊位数'},
+    PLACE_BOOK: {type: db.ID, field: 'availableslotfordisablenum', allowNull: false, comment: '残疾人专用空余泊位数'},
+
+ 
+    placeslotelectricnum: db.STRING(10),
+    placestatus: db.STRING(10),
+    placebook: db.STRING(10),
+    placeprovince: db.STRING(10),
+    placecity: db.DECIMAL,
+    placedistrict: db.STRING(10),
+    placelng: db.STRING(10),
+    placelat: db.STRING(10),
+    placearea: db.STRING(10),
+    placetype: db.STRING(10),
+    placepaytype: db.STRING(10),
+    placeposition: db.STRING(10),
+    placeaddress: db.STRING(10),
+    placeentrycount: db.STRING(10),
+    placefeemode: db.STRING(10),
+    placeguaranteedperiod: db.STRING(10),
+    placeownercompany: db.STRING(10),
+    placeownermanager: db.STRING(10),
+    placeownertel: db.STRING(10),
+    placeopentimeL:db.STRING(10),
+    placedesc: db.STRING(10),
+    placescore: db.STRING(10),
+    createby: db.STRING(10),
+    createtime: db.STRING(10),
+    updatetime: db.STRING(10),
+    updateby: db.STRING(10),
+    placeterminalid: db.STRING(10),
+    placeterminaluser: db.STRING(10),
+    placeterminalpass:db.STRING(10),
+    placeonduty: db.STRING(10),
+    placebookfee: db.STRING(10),
+    placebookunit: db.STRING(10)
+}, {
+    freezeTableName: true,
+    timestamps: false
+})
+
